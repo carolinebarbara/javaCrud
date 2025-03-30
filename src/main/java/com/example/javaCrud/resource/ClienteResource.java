@@ -37,6 +37,11 @@ public class ClienteResource {
         Cliente cliente = service.buscarPorId(id);
         return cliente != null ? ResponseEntity.ok(cliente) : ResponseEntity.notFound().build();
     }
+
+    /*@GetMapping("/{id}")
+    public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
+    }*/
     
     @PostMapping
     public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
@@ -48,6 +53,11 @@ public class ClienteResource {
         Cliente atualizado = service.atualizar(id, cliente);
         return atualizado != null ? ResponseEntity.ok(atualizado) : ResponseEntity.notFound().build();
     }
+
+    /*@PutMapping("/{id}")
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente){
+        return ResponseEntity.ok(service.atualizar(id, cliente));
+    }*/
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id){
